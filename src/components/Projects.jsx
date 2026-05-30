@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GithubIcon, ExternalLink } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 
 const projects = [
   {
@@ -29,7 +29,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-32 px-6">
+    <section id="projects" className=" raone py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl font-bold text-center mb-20">
           Featured Projects
@@ -64,23 +64,11 @@ export default function Projects() {
                   <a
                     href={project.github}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-5 py-3 rounded-xl bg-purple-600 hover:scale-105 transition"
                   >
                     <GithubIcon size={18} />
                     GitHub
-                  </a>
-
-                  <button className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover:bg-white/10 transition">
-                    <ExternalLink size={18} />
-                  </button>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover:bg-white/10 transition"
-                  >
-                    <ExternalLink size={18} />
-                    Demo
                   </a>
                 </div>
               </div>

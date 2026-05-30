@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-32 px-6"
+      className=" raone py-32 px-6"
     >
       <div className="max-w-6xl mx-auto">
 

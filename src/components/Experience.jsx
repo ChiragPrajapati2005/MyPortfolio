@@ -27,7 +27,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-32 px-6"
+      className="py-32 raone px-6"
     >
       <div className="max-w-5xl mx-auto">
 

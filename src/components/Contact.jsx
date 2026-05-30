@@ -58,7 +58,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-32 px-6"
+      className="py-32 px-6 raone"
     >
       <div className="max-w-5xl mx-auto">
 

@@ -16,7 +16,7 @@ export default function Card() {
       {Image : "https://images.axios.com/knsqCzAUJasO2gvNeJIT75g36-k=/0x580:5568x3712/1920x1080/2018/11/30/1543613757886.jpg" , name : "Microsoft" , Description : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae atque recusandae eum dolorem i debitis laudantium impedit incidunt.", instock : true}
    ];
   return (
-    <div className='min-h-screen bg-zinc-400 w-full flex justify-center gap-10 items-center'>
+    <div className=' raone min-h-screen bg-zinc-400 w-full flex justify-center gap-10 items-center'>
       {cardData.map((cardData, index) => (
         <div className="w-60 h-auto bg-zinc-100 rounded-lg " key={index}>
           <img className="rounded-t-lg h-40 w-full" src={cardData.Image} alt="" />
