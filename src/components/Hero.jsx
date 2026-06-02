@@ -18,7 +18,7 @@ export default function Hero() {
         >
           <h2 className="text-slate-400 mb-4">Hi, I'm</h2>
 
-          <h1 className="text-6xl md:text-7xl font-bold leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
             Chirag
             <span className="gradient-text"> Prajapati</span>
           </h1>
@@ -107,8 +107,12 @@ export default function Hero() {
               src={`${import.meta.env.BASE_URL}image.jpeg`}
               alt="Chirag Prajapati"
               className="
-        w-[320px]
-        h-[320px]
+        w-[220px]
+h-[220px]
+sm:w-[280px]
+sm:h-[280px]
+md:w-[320px]
+md:h-[320px]
         object-cover
         rounded-full
         border-4
@@ -119,13 +123,19 @@ export default function Hero() {
           </div>
 
           {/* Experience Badge */}
-          <div className="absolute bottom-5 -left-8 glass px-6 py-4 rounded-2xl">
+          <div
+            className="absolute absolute bottom-0 left-0
+sm:bottom-5
+sm:-left-8 glass px-6 py-4 rounded-2xl"
+          >
             <h3 className="text-2xl font-bold text-cyan-400">MERN</h3>
             <p className="text-slate-400 text-sm">Stack Developer</p>
           </div>
 
           {/* Projects Badge */}
-          <div className="absolute top-10 -right-10 glass px-6 py-4 rounded-2xl">
+          <div className="absolute top-0 right-0
+sm:top-10
+sm:-right-10 glass px-6 py-4 rounded-2xl">
             <h3 className="text-2xl font-bold text-purple-400">10+</h3>
             <p className="text-slate-400 text-sm">Projects</p>
           </div>

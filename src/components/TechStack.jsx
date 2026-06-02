@@ -9,7 +9,7 @@ const techs = [
   "Express.js",
   "MongoDB",
   "Java",
-  "Golang",
+  
   "Git/GitHub",
 ];
 
@@ -18,11 +18,11 @@ export default function TechStack() {
     <section className="py-32 px-6 raone">
       <div className="max-w-7xl mx-auto">
 
-        <h2 className="text-5xl font-bold text-center mb-20">
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">
           Tech Stack
         </h2>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
           {techs.map((tech, index) => (
             <motion.div

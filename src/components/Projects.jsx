@@ -35,14 +35,14 @@ export default function Projects() {
           Featured Projects
         </h2>
 
-        <div className="grid lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               whileHover={{ y: -10 }}
               className="glass rounded-3xl overflow-hidden glow"
             >
-              <div className="h-56 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-70" />
+              <div className="h-40 sm:h-56 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-70" />
 
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-4">{project.title}</h3>

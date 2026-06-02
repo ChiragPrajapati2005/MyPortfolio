@@ -6,7 +6,7 @@ export default function About() {
     >
       <div className="max-w-6xl mx-auto">
 
-        <h2 className="text-5xl font-bold mb-16">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16">
           About Me
         </h2>
 
@@ -38,7 +38,7 @@ export default function About() {
                 "MongoDB",
                 "Express",
                 "Java",
-                "Golang",
+                
                 "TailwindCSS",
               ].map((skill) => (
                 <span
