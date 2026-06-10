@@ -6,7 +6,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 
-const Message = require("./models/Message");
+const Message = require("./models/message");
 
 const app = express();
 
