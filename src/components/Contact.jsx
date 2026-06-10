@@ -9,6 +9,7 @@ import {
 
 export default function Contact() {
 
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,7 +28,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/contact",
+        "https://myportfolio-3-p0pk.onrender.com/contact",
         {
           method: "POST",
           headers: {
@@ -38,7 +39,8 @@ export default function Contact() {
       );
 
       const data = await response.json();
-
+      console.log("Status:", response.status);
+console.log("Response:", data);
       if (data.success) {
         alert("Message Sent!");
 
