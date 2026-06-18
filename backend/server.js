@@ -1,7 +1,7 @@
-
 require("dotenv").config();
 
 const express = require("express");
+const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
@@ -26,10 +26,26 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+transporter.verify((err, success) => {
+  if (err) {
+    console.log("Email Error:", err);
+  } else {
+    console.log("Email Server Ready");
+  }
+});
+
 app.post("/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
+    if (!name || !email || !message) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
+
+    // Save in MongoDB
     const newMessage = new Message({
       name,
       email,
@@ -38,14 +54,21 @@ app.post("/contact", async (req, res) => {
 
     await newMessage.save();
 
+    // Send Email
     await transporter.sendMail({
-      from: email,
+      from: process.env.EMAIL_USER,
+      replyTo: email,
       to: process.env.EMAIL_USER,
+
       subject: `Portfolio Message from ${name}`,
+
       html: `
         <h2>New Portfolio Message</h2>
+
         <p><strong>Name:</strong> ${name}</p>
+
         <p><strong>Email:</strong> ${email}</p>
+
         <p><strong>Message:</strong> ${message}</p>
       `,
     });
@@ -56,15 +79,20 @@ app.post("/contact", async (req, res) => {
     });
 
   } catch (error) {
-    console.log(error);
+    console.log("ERROR:", error);
 
     res.status(500).json({
       success: false,
-      message: "Server Error",
+      message: error.message,
     });
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+app.get("/", (req, res) => {
+  res.send("Portfolio Backend Running");
+});
+
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

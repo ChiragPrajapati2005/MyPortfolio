@@ -1,80 +1,255 @@
 import { motion } from "framer-motion";
-import { GithubIcon } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+} from "lucide-react";
 
 const projects = [
   {
     title: "PassOP Password Manager",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-    desc: "Secure password manager with CRUD functionality, authentication, encrypted storage and REST APIs.",
-    github: "https://github.com/ChiragPrajapati2005",
-    demo: "https://your-demo-link.com",
-  },
 
-  {
-    title: "To-Do List Web App",
-    tech: ["React", "TailwindCSS"],
-    desc: "Dynamic task management app with add/edit/delete features and responsive UI.",
-    github: "https://github.com/ChiragPrajapati2005",
-    demo: "https://your-demo-link.com",
+    description:
+      "A secure password manager built with the MERN stack featuring CRUD operations, encrypted storage, and responsive UI.",
+
+    tech: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express",
+      "TailwindCSS",
+    ],
+
+    github:
+      "https://github.com/ChiragPrajapati2005",
+
+    demo:
+      "#",
+
+    image:
+      `${import.meta.env.BASE_URL}passop.png`,
   },
 
   {
     title: "Bug Tracker",
-    tech: ["HTML", "CSS", "JavaScript"],
-    desc: "Bug tracking system with issue management, filtering and DOM event handling.",
-    github: "https://github.com/ChiragPrajapati2005",
-    demo: "https://chiragprajapati2005.github.io/Bug-Tracker/",
+
+    description:
+      "A web-based bug tracking system with issue management, filtering, and dynamic DOM interactions.",
+
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+
+    github:
+      "https://github.com/ChiragPrajapati2005",
+
+    demo:
+      "https://chiragprajapati2005.github.io/Bug-Tracker/",
+
+    image:
+      `${import.meta.env.BASE_URL}bugtracker.png`,
+  },
+
+  {
+    title: "To-Do List App",
+
+    description:
+      "Responsive task management application with CRUD functionality and modern UI design.",
+
+    tech: [
+      "React",
+      "TailwindCSS",
+    ],
+
+    github:
+      "https://github.com/ChiragPrajapati2005",
+
+    demo:
+      "#",
+
+    image:
+      `${import.meta.env.BASE_URL}todo.png`,
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className=" raone py-32 px-6">
+    <section
+      id="projects"
+      className="py-32 px-6 bg-[#0B0F19]"
+    >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-20">
-          Featured Projects
-        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Heading */}
+
+        <div className="text-center mb-20">
+          <p className="text-cyan-400 font-medium mb-3">
+            PROJECTS
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Featured Work
+          </h2>
+
+          <p className="text-slate-400 mt-6 max-w-2xl mx-auto leading-8">
+            A collection of projects showcasing
+            my skills in full stack development,
+            problem solving, and modern web technologies.
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              whileHover={{ y: -10 }}
-              className="glass rounded-3xl overflow-hidden glow"
+
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+
+              viewport={{
+                once: true,
+              }}
+
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+
+              whileHover={{
+                y: -8,
+              }}
+
+              className="
+                overflow-hidden
+                rounded-3xl
+                border
+                border-white/10
+                bg-white/[0.03]
+                backdrop-blur-xl
+                hover:border-cyan-500/30
+                transition-all
+                duration-300
+              "
             >
-              <div className="h-40 sm:h-56 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-70" />
 
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+              {/* Project Image */}
 
-                <p className="text-slate-400 leading-7">{project.desc}</p>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="
+                  w-full
+                  h-52
+                  object-cover
+                "
+              />
 
-                <div className="flex flex-wrap gap-3 mt-6">
-                  {project.tech.map((item) => (
+              {/* Content */}
+
+              <div className="p-7">
+
+                <h3 className="text-2xl font-semibold mb-4">
+                  {project.title}
+                </h3>
+
+                <p className="text-slate-400 leading-7">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+
+                <div className="flex flex-wrap gap-2 mt-6">
+
+                  {project.tech.map((tech) => (
                     <span
-                      key={item}
-                      className="px-3 py-1 rounded-full bg-white/10 text-sm"
+                      key={tech}
+                      className="
+                        px-3
+                        py-1
+                        rounded-full
+                        bg-cyan-500/10
+                        text-cyan-400
+                        text-sm
+                      "
                     >
-                      {item}
+                      {tech}
                     </span>
                   ))}
+
                 </div>
 
-                <div className="flex gap-4 mt-8">
+                {/* Buttons */}
+
+                <div className="flex gap-3 mt-8">
+
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-3 rounded-xl bg-purple-600 hover:scale-105 transition"
+
+                    className="
+                      flex
+                      items-center
+                      gap-2
+                      px-4
+                      py-3
+                      rounded-xl
+                      border
+                      border-white/10
+                      bg-white/5
+                      hover:border-cyan-400
+                      transition
+                    "
                   >
-                    <GithubIcon size={18} />
+                    <Github size={18} />
                     GitHub
                   </a>
+
+                  {project.demo !== "#" && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+
+                      className="
+                        flex
+                        items-center
+                        gap-2
+                        px-4
+                        py-3
+                        rounded-xl
+                        bg-cyan-500
+                        text-black
+                        font-medium
+                        hover:scale-105
+                        transition
+                      "
+                    >
+                      <ExternalLink size={18} />
+                      Live
+                    </a>
+                  )}
+
                 </div>
+
               </div>
+
             </motion.div>
           ))}
+
         </div>
+
       </div>
     </section>
   );
