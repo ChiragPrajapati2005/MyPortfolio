@@ -39,7 +39,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/contact",
+      "https://myportfolio-3-p0pk.onrender.com/contact",
         {
           method: "POST",
           headers: {
