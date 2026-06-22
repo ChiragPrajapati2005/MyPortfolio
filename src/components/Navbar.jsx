@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="
+      className=" raone
         fixed
         top-0
         left-0

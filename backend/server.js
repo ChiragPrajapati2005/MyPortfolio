@@ -13,10 +13,29 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose Connected");
+});
+
+mongoose.connection.on("error", (err) => {
+  console.log("Mongoose Error:", err);
+});
+
+mongoose.connection.on("disconnected", () => {
+  console.log("Mongoose Disconnected");
+});
+console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
+console.log("EMAIL_USER exists:", !!process.env.EMAIL_USER);
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+  .then(() => {
+    console.log("MongoDB Connected");
+
+    
+  })
+  .catch((err) => {
+    console.log("Mongo Error:", err);
+  });
 
 const transporter = nodemailer.createTransport({
   service: "gmail",

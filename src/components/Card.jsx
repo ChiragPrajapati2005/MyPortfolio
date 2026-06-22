@@ -32,7 +32,7 @@ const cardData = [
 
 export default function Card() {
   return (
-    <section className="py-24 px-6 bg-[#0B0F19]">
+    <section className="raone py-24 px-6 bg-[#0B0F19]">
       <div className="max-w-7xl mx-auto">
 
         <div className="mb-16">

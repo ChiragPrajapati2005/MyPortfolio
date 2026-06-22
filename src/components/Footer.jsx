@@ -10,7 +10,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0B0F19] border-t border-white/10">
+    <footer className="raone bg-[#0B0F19] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-12">
 
         {/* Top Section */}

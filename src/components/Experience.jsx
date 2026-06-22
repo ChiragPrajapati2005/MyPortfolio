@@ -31,7 +31,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-32 px-6 bg-[#0B0F19]"
+      className="raone py-32 px-6 bg-[#0B0F19]"
     >
       <div className="max-w-6xl mx-auto">
 

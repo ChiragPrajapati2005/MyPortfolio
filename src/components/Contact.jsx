@@ -73,7 +73,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-32 px-6 bg-[#0B0F19]"
+      className="raone py-32 px-6 bg-[#0B0F19]"
     >
       <div className="max-w-7xl mx-auto">
 

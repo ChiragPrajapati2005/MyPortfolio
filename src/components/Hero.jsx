@@ -9,7 +9,7 @@ import {
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-[#0B0F19] flex items-center px-6 pt-24">
+    <section className="raone min-h-screen bg-[#0B0F19] flex items-center px-6 pt-24">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
         {/* Left Content */}
