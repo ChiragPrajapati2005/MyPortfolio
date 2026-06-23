@@ -13,6 +13,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+
 mongoose.connection.on("connected", () => {
   console.log("Mongoose Connected");
 });
@@ -24,14 +26,15 @@ mongoose.connection.on("error", (err) => {
 mongoose.connection.on("disconnected", () => {
   console.log("Mongoose Disconnected");
 });
+
+console.log("URI =", process.env.MONGO_URI);
 console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
 console.log("EMAIL_USER exists:", !!process.env.EMAIL_USER);
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected");
-
-    
   })
   .catch((err) => {
     console.log("Mongo Error:", err);
@@ -96,7 +99,6 @@ app.post("/contact", async (req, res) => {
       success: true,
       message: "Message sent successfully",
     });
-
   } catch (error) {
     console.log("ERROR:", error);
 
@@ -110,7 +112,6 @@ app.post("/contact", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Portfolio Backend Running");
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
