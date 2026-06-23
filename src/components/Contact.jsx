@@ -39,7 +39,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-      "https://myportfolio-3-p0pk.onrender.com/contact",
+      "https://myportfolio-api-cl9o.onrender.com/contact",
         {
           method: "POST",
           headers: {
