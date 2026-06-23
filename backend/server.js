@@ -51,13 +51,13 @@ const transporter = nodemailer.createTransport({
   family: 4,
 });
 
-transporter.verify((err, success) => {
-  if (err) {
-    console.log("Email Error:", err);
-  } else {
-    console.log("Email Server Ready");
-  }
-});
+// transporter.verify((err, success) => {
+//   if (err) {
+//     console.log("Email Error:", err);
+//   } else {
+//     console.log("Email Server Ready");
+//   }
+// });
 
 app.post("/contact", async (req, res) => {
   try {
@@ -80,23 +80,23 @@ app.post("/contact", async (req, res) => {
     await newMessage.save();
 
     // Send Email
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      replyTo: email,
-      to: process.env.EMAIL_USER,
+    // await transporter.sendMail({
+    //   from: process.env.EMAIL_USER,
+    //   replyTo: email,
+    //   to: process.env.EMAIL_USER,
 
-      subject: `Portfolio Message from ${name}`,
+    //   subject: `Portfolio Message from ${name}`,
 
-      html: `
-        <h2>New Portfolio Message</h2>
+    //   html: `
+    //     <h2>New Portfolio Message</h2>
 
-        <p><strong>Name:</strong> ${name}</p>
+    //     <p><strong>Name:</strong> ${name}</p>
 
-        <p><strong>Email:</strong> ${email}</p>
+    //     <p><strong>Email:</strong> ${email}</p>
 
-        <p><strong>Message:</strong> ${message}</p>
-      `,
-    });
+    //     <p><strong>Message:</strong> ${message}</p>
+    //   `,
+    // });
 
     res.status(200).json({
       success: true,
