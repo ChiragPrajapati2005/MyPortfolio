@@ -1,3 +1,5 @@
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 require("dotenv").config();
 
 const express = require("express");
@@ -14,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 
-
+console.log("URI =", JSON.stringify(process.env.MONGO_URI));
 mongoose.connection.on("connected", () => {
   console.log("Mongoose Connected");
 });
@@ -28,8 +30,8 @@ mongoose.connection.on("disconnected", () => {
 });
 
 console.log("URI =", process.env.MONGO_URI);
-console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
-console.log("EMAIL_USER exists:", !!process.env.EMAIL_USER);
+console.log("MONGO_URI exists:", !! process.env.MONGO_URI);
+console.log("EMAIL_USER exists:", !! process.env.EMAIL_USER);
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -51,13 +53,13 @@ const transporter = nodemailer.createTransport({
   family: 4,
 });
 
-// transporter.verify((err, success) => {
-//   if (err) {
-//     console.log("Email Error:", err);
-//   } else {
-//     console.log("Email Server Ready");
-//   }
-// });
+transporter.verify((err, success) => {
+  if (err) {
+    console.log("Email Error:", err);
+  } else {
+    console.log("Email Server Ready");
+  }
+});
 
 app.post("/contact", async (req, res) => {
   try {
@@ -80,23 +82,20 @@ app.post("/contact", async (req, res) => {
     await newMessage.save();
 
     // Send Email
-    // await transporter.sendMail({
-    //   from: process.env.EMAIL_USER,
-    //   replyTo: email,
-    //   to: process.env.EMAIL_USER,
+    const info = await transporter.sendMail({
+  from: process.env.EMAIL_USER,
+  replyTo: email,
+  to: process.env.EMAIL_USER,
+  subject: `Portfolio Message from ${name}`,
+  html: `
+    <h2>New Portfolio Message</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Message:</strong> ${message}</p>
+  `,
+});
 
-    //   subject: `Portfolio Message from ${name}`,
-
-    //   html: `
-    //     <h2>New Portfolio Message</h2>
-
-    //     <p><strong>Name:</strong> ${name}</p>
-
-    //     <p><strong>Email:</strong> ${email}</p>
-
-    //     <p><strong>Message:</strong> ${message}</p>
-    //   `,
-    // });
+console.log("Mail sent:", info.messageId);
 
     res.status(200).json({
       success: true,

@@ -23,11 +23,34 @@ const projects = [
       "https://github.com/ChiragPrajapati2005",
 
     demo:
-      "#",
+      "https://password-manager-dusky-delta.vercel.app",
 
     image:
       `${import.meta.env.BASE_URL}passop.png`,
   },
+  {
+  title: "Mini Project",
+
+  description:
+    "A full-stack web application built with Node.js, Express, MongoDB, and EJS featuring authentication, CRUD operations, and a responsive user interface.",
+
+  tech: [
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "EJS",
+    "Bootstrap",
+  ],
+
+  github:
+    "https://github.com/ChiragPrajapati2005/Mini_project",
+
+  demo:
+    "https://mini-project-gnt9.onrender.com",
+
+  image:
+    `${import.meta.env.BASE_URL}Mini.png`,
+},
 
   {
     title: "Bug Tracker",
@@ -48,29 +71,10 @@ const projects = [
       "https://chiragprajapati2005.github.io/Bug-Tracker/",
 
     image:
-      `${import.meta.env.BASE_URL}bugtracker.png`,
+      `${import.meta.env.BASE_URL}Bug.png`,
   },
 
-  {
-    title: "To-Do List App",
 
-    description:
-      "Responsive task management application with CRUD functionality and modern UI design.",
-
-    tech: [
-      "React",
-      "TailwindCSS",
-    ],
-
-    github:
-      "https://github.com/ChiragPrajapati2005",
-
-    demo:
-      "#",
-
-    image:
-      `${import.meta.env.BASE_URL}todo.png`,
-  },
 ];
 
 export default function Projects() {
