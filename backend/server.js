@@ -1,5 +1,5 @@
 const dns = require('dns');
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+dns.setDefaultResultOrder("ipv4first");
 require("dotenv").config();
 
 const express = require("express");
@@ -50,7 +50,9 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  family: 4,
+  tls: {
+    rejectUnauthorized: false,
+  },
 });
 
 transporter.verify((err, success) => {
