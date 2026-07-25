@@ -39,7 +39,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-      "https://myportfolio-api-cl9o.onrender.com/contact",
+        "https://myportfolio-api-cl9o.onrender.com/contact",
         {
           method: "POST",
           headers: {
@@ -63,8 +63,8 @@ export default function Contact() {
         alert(data.message || "Something went wrong.");
       }
     } catch (error) {
-      console.error(error);
-      alert("Server Error. Please try again later.");
+      console.error("FULL ERROR:", error);
+      alert(error.message);
     } finally {
       setLoading(false);
     }

@@ -80,7 +80,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="/Resume.main.pdf"
+              href="/Chirag.Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="

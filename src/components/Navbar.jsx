@@ -60,7 +60,7 @@ export default function Navbar() {
 
         {/* Resume Button */}
         <a
-          href="/Resume.main.pdf"
+          href="/Chirag.Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="
@@ -124,7 +124,7 @@ export default function Navbar() {
             ))}
 
             <a
-              href="/Resume.main.pdf"
+              href="/Chirag.Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="
