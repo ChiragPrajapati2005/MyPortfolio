@@ -80,7 +80,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="/Chirag.Resume.pdf"
+              href="/New_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -189,7 +189,7 @@ export default function Hero() {
               "
             >
               <img
-                src={`${import.meta.env.BASE_URL}image.jpeg`}
+                src={`${import.meta.env.BASE_URL}New Image.jpeg`}
                 alt="Chirag Prajapati"
                 className="
                   w-[280px]
